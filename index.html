@@ -233,68 +233,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="XML学习笔记"><a href="#XML学习笔记" class="headerlink" title="XML学习笔记"></a>XML学习笔记</h1><h2 id="XML语法"><a href="#XML语法" class="headerlink" title="XML语法"></a>XML语法</h2><p>XML文档的语法格式如下。&lt;/br.<br>(1)必须有一个顶层元素，即文档元素，所有其他元素必须嵌入在该元素中。<br><br>(2)元素嵌套要正确，即如果一个元素在另一个元素中开始，那么必须在同一元素中结束。<br><br>(3)每个元素必须同时拥有开始和结束标记。<br><br>(4)开始标记中的元素类型名必须与相应结束标记中的名称完全匹配。<br><br>(5)元素类型名区分大小写，如分别定义开始标记<title>和结束标记</title>
-  <meta name="generator" content="hexo-theme-yilia-plus">，二者的类型名与结束标记的类型名必须匹配；否则元素是非法的。<br><br>(6)元素类型名称中可以包含字母、数字及其他字母元素类型，也可以使用非英文字符。名称不能以数字或符号“-”开头，名称中不能包含空格符和冒号。<br><br>(7)元素的属性值必须使用引号“”””括起。</p>
-<h2 id="XML声明"><a href="#XML声明" class="headerlink" title="XML声明"></a>XML声明</h2><p>XML声明的作用是使浏览器识别将要处理的文档是XML文件，它在文档中是可选内容，推荐使用XML声明。其语法格式如下： <br></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span> xml version=<span class="string">"version"</span> encoding=<span class="string">"value"</span> standalone=<span class="string">"value"</span> <span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p>（1）version：指定遵循XML规范的版本号，在XML声明中必须包含该参数，并且必须放在XML声明中其他属性之前。<br><br>（2）encoding：指定XML文档中字符使用的编码标准。<br><br>（3）standalone：指定该XML文档是否一个外部文档嵌套使用，取值为yes或者no。为yes，说明是一个独立的XML文档，与外部文件无关联；否则说明XML文档不独立。</p>
-<h2 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h2><p>XML元素指从其开始标记到结束标记之间的内容，包括元素内容、混合内容、简单内容或者空内容。XML元素由开始标记、元素内容和结束标记3个部分组成，定义XML元素的语法格式如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TagName</span>&gt;</span>content<span class="tag">&lt;/<span class="name">TagName</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>（1）TagName:XML元素的开始标记，其中TagName是元素名。元素名可以包含字母，数字和其他字符，但最好不使用“-”和“.”，以免产生混淆。并且元素名只能以字母、下画线或冒号开头，而不能以XML（包括xml、Xml、xMl…）开头。也不能包含空格，并且至少含有一个字母。<br><br>（2）content：元素内容，可以包含其他元素、字符数据、字符引用、实体引用、处理命令、注释和CDATA部分。<br><br>（3）/TagName:XML元素的结束标记，其中TagName是元素名，该名称必须与开始标记中指定的元素名相同，包括字母的大小写。</p>
-<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p>在一个元素的开始标记中可以自定义一个或者多个属性，属性依附于元素存在，属性值用单引号或者双引号括起。<br></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">book</span> <span class="attr">Type</span>=<span class="string">"WebBook"</span>&gt;</span><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>为元素添加属性是为其提供信息的一种方法。当使用CSS样式表显示XML文档时，浏览器不会显示属性及其值。如果使用数据绑定、HTML页中的脚本或者XSL样式表显示XML文档，则可以访问属性及其值。<br></p>
-<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>注释是为了便于阅读和理解，在XML文档中添加的附加信息。它是对文档结构或者内容的解释，不属于XML文档的内容，所以XML解析器不会处理注释内容。注释以字符串“&lt;! –”开始，以字符串“–&gt;”结束。XML解析器将忽略注释中的所有数据，这样可以在XML文档中添加注释说明程序用途，或者临时注释掉没有准备好的文档部分。</p>
-<h2 id="字符和实体引用"><a href="#字符和实体引用" class="headerlink" title="字符和实体引用"></a>字符和实体引用</h2><p>在XML文档中有些字符会被XML解析器作为标记处理，如果要把这些字符作为普通字符处理，则需要引用实体。XML常用的实体引用如表1所示。 <br><br><img src="/2020/03/09/note2/1.png" alt></p>
-<h2 id="XML的两种语法规则"><a href="#XML的两种语法规则" class="headerlink" title="XML的两种语法规则"></a>XML的两种语法规则</h2><p>定义XML文档结构的两种形式是DTD（Document TypeDefinition）文档类型定义和Schema模式定义。<br></p>
-<h3 id="DTD文档类型定义"><a href="#DTD文档类型定义" class="headerlink" title="DTD文档类型定义"></a>DTD文档类型定义</h3><p>DTD文档类型定义是一套关于标记符的语法规则，用于定义可用在XML文档中的元素、属性和实体，以及这些内容之间的相互关系，其语法格式如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">ELEMENT</span> <span class="attr">name</span>  <span class="attr">content</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>（1）name：一个标准的XML标记名。（2）content：可以是EMPTY、ANY或者描述包含在本元素中子元素顺序和重复次数的内容模型。<br><br>下面分别介绍5种内容模型和元素出现次数指示符。<br><br>（1）EMPTY类型EMPTY类型用于定义空元素，即说明该元素只能有属性，不能有字符数据或者子元素。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">ELEMENT</span> <span class="attr">blank</span> <span class="attr">EMPTY</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blank</span>&gt;</span><span class="tag">&lt;/<span class="name">blank</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>（2）ANY类型ANY类型表明该元素可以包含DTD中定义的其他任何元素或者已编译过的字符数据。<br><br>（3）#PCDATA类型#PCDATA类型表明该元素中不包含其他子元素，而只包含字符数据。<br>（4）子元素类型子元素类型表明元素可以包含一系列的子元素，它有如下两种结构。<br><br>1.序列结构：子元素必须按照定义的顺序出现，并且只能出现一次。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">ELEMENT</span> <span class="attr">book</span>(<span class="attr">title</span>,<span class="attr">pages</span>,<span class="attr">datetime</span>)&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>2.选择结构是指子元素是定义子元素集合中的一个，但不能包含其中的两个或者更多。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">ELEMENT</span> <span class="attr">book</span> (<span class="attr">title-pages-datetime</span>)&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>（5）混合类型混合类型指元素包含子元素和已编译的字符数据。<br><br>混合内容元素的声明必须遵循以“#PCDATA”开始，后面是混合内容中可能出现的子元素类型，在右括号之后加符号“*”。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">ELEMENT</span> <span class="attr">book</span> (#<span class="attr">PCDATA-title-pages-datatime</span>)*&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>（6）元素出现次数指示符。使用元素出现次数指示符可以指定元素出现的次数，该指示符有以下3种。 <br></p>
-<ol>
-<li>“? ”字符，说明元素可以出现0次或者一次。</li>
-<li>“*”字符，说明元素可以不出现、出现一次或者多次。</li>
-<li>“+”字符，说明元素必须出现至少一次。 <br><br>DTD可以定义元素的属性，声明属性的语法格式如下：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">ATTLIST</span> <span class="attr">Element_name</span> <span class="attr">Attribute_name</span> <span class="attr">Type</span> <span class="attr">Default_value</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>DTD属性声明中的参数如表2所示。<br><img src="/2020/03/09/note2/2.png" alt> <br><br>DTD属性声明中的属性类型如表3所示。<br><img src="/2020/03/09/note2/3.png" alt> <br><br>DTD属性声明中的属性默认值如表4所示。<br><br><img src="/2020/03/09/note2/4.png" alt> <br><br>DTD可以包含在XML文档中，也可以独立为一个文件，根据其位置可以分成内部和外部DTD。<br><br>（1）内部DTD。<br><br>将DTD定义在XML文档的内部构成内部DTD，其语法格式如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">DOCUMENT</span> <span class="attr">NAME</span></span></span><br><span class="line"><span class="tag">[</span></span><br><span class="line">&lt;! ELEMENT NAME CONTENT&gt;</span><br><span class="line">     ...</span><br><span class="line">]</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-
-<p>（2）外部DTD。<br><br>可以将DTD部分放在XML文档的外部，一个DTD文件可以提供给多个XML文档使用，DTD文件的扩展名为“.dtd”。<br><br>在XML文档中引用DTD文件的语法格式如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">DOCUMENT</span> <span class="attr">name</span> <span class="attr">SYSTEM</span>"<span class="attr">DTD</span>文件路径"&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Schema文档规则"><a href="#Schema文档规则" class="headerlink" title="Schema文档规则"></a>Schema文档规则</h3><p>Schema文档规则使用一种类似XML的语言，在Schema模式定义中有全局和局部声明。该模式具有一套完整的数据类型系统，允许详细定义数据类型。Schema模式是一个文本文件，独立于XML文档，扩展名为“.xsd”。<br><br>下面通过具体示例说明Schema模式的基本结构和使用方法。<br><br>book.xsd</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span> xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;<span class="name">xsd:schema</span> <span class="attr">xmlns:xsd</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">xsd:element</span> <span class="attr">name</span>=<span class="string">"resume"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">xsd:complexType</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">xsd:sequence</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">xsd:element</span> <span class="attr">name</span>=<span class="string">"book"</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">xsd:complexType</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">xsd:sequence</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">xsd:element</span> <span class="attr">name</span>=<span class="string">"title"</span> <span class="attr">type</span>=<span class="string">"xsd:string"</span>/&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">xsd:element</span> <span class="attr">name</span>=<span class="string">"pages"</span> <span class="attr">type</span>=<span class="string">"xsd:int"</span>/&gt;</span></span><br><span class="line">             <span class="tag">&lt;/<span class="name">xsd:sequence</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">xsd:complexType</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;/<span class="name">xsd:element</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">xsd:sequence</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">xsd:complexType</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">xsd:element</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">xsd:schema</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>mr.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span> xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;<span class="name">resume</span> <span class="attr">xmlns:targetNamespace</span>=<span class="string">"http://www.mingrisoft.com/myschema/book.xsd"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xsi:noNamespaceSchemaLocation</span>=<span class="string">"myschema\book.xsd"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">book</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">title</span>&gt;</span>XXX<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">pages</span>&gt;</span>750<span class="tag">&lt;/<span class="name">pages</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resume</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="XML的3种显示格式"><a href="#XML的3种显示格式" class="headerlink" title="XML的3种显示格式"></a>XML的3种显示格式</h2><p>1.CSS样式表<br>在XML文档中直接链接一个CSS样式表文件，可以使用CSS样式表显示其内容。CSS样式表中的样式名称应与XML文档中定义的元素名称相同。<br><br>语法格式如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span> xml-stylesheet type=<span class="string">"text/css"</span>href=<span class="string">"CSS样式文件路径"</span><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p>2.XSL样式语言<br>XSL（the eXtensible Stylesheet Language）语言与CSS样式表的功能类似，一个XSL样式表链接到一个XML文档可以显示XML数据，在XML文档中应用CSS样式表只允许指定每个XML元素的格式。而XSL样式表可以完整控制整个XML文档的输出，它能够精确地选择需要显示的XML数据，按照任意顺序排列显示的数据并方便地修改或者添加数据。XSL样式表是一个正确有效的XML文档，其扩展名为“.xsl”。<br><br>在XML文档中使用XSL样式表的语法格式如下：      </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span> xml-stylesheet type=<span class="string">"texxt/xsl"</span>href=<span class="string">"XSL样式表路径"</span><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p>3.XML数据岛技术<br>XML数据岛技术可以有效地分离显示格式和显示数据，使用该技术的文档也是一个正确有效的XML文档。在XML文档中存放的数据可以通过HTML页面调用该文档，从而显示其中的内容。<br><br>在HTML文件中链接XML文档的语法格式如下：<br></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">xml</span> <span class="attr">id</span>=<span class="string">"value"</span> <span class="attr">src</span>=<span class="string">"XML文件"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
+    <h1 id="XML学习笔记"><a href="#XML学习笔记" class="headerlink" title="XML学习笔记"></a>XML学习笔记</h1><h2 id="XML语法"><a href="#XML语法" class="headerlink" title="XML语法"></a>XML语法</h2><p>XML文档的语法格式如下。&lt;/br.<br>(1)必须有一个顶层元素，即文档元素，所有其他元素必须嵌入在该元素中。<br><br>(2)元素嵌套要正确，即如果一个元素在另一个元素中开始，那么必须在同一元素中结束。<br><br>(3)每个元素必须同时拥有开始和结束标记。<br><br>(4)开始标记中的元素类型名必须与相应结束标记中的名称完全匹配。</p>
+    
+    <a class="article-more-a" href="/2020/03/09/note2/#more">more >></a>
+    
     
 
     
@@ -310,11 +252,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">xml</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">xml</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
         		</li>
       		
 		</ul>
@@ -383,61 +325,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="JavaScript学习笔记"><a href="#JavaScript学习笔记" class="headerlink" title="JavaScript学习笔记"></a>JavaScript学习笔记</h1><h2 id="JavaScript语言基础"><a href="#JavaScript语言基础" class="headerlink" title="JavaScript语言基础"></a>JavaScript语言基础</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量指程序中一个已经命名的存储单元，主要作用是为数据操作提供存放信息的容器。在JavaScript中可以使用var声明变量，其语法格式如下： <br></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> variable;</span><br></pre></td></tr></table></figure>
-
-<p>在声明变量的同时也可以为变量赋值，如下面的代码定义一个变量number并赋初始值10：<br></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> number=<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
-
-<p>由于JavaScript采用弱类型的形式，所以在声明变量时不需要指定变量的类型。变量的类型根据其赋值来确定，如：<br></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> state=<span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> price=<span class="number">12.5</span>;</span><br><span class="line"><span class="keyword">var</span> type=<span class="string">"JAVA"</span>;</span><br></pre></td></tr></table></figure>
-
-<p>JavaScript变量的命名规则如下。<br><br>（1）变量名由字母、数字或下画线组成，但必须以字母或下画线开头。<br><br>（2）变量名中不能有空格、加号、减号或逗号等符号。<br><br>（3）变量名严格区分大小写，如arr_week与arr_Week代表两个不同变量。<br><br>（4）不能使用JavaScript中的关键字，这些关键字如表1所示。<br><br><img src="/2020/03/08/note1/1.png" alt="表1"> <br></p>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>(1)数值型<br>JavaScript的数值型数据又可以分为整型和浮点型。JavaScript的整型数据可以是正整数、负整数和0，并且可以采用十进制、八进制或十六进制来表示。在JavaScript中以“0”开头的数为八进制数，以“0x”开头的数为十六进制数。浮点型数据由整数部分加小数部分组成，只能采用十进制，但是可以使用科学记数法或标准方法表示。<br><br>(2)字符型<br>字符型数据是使用单引号或双引号括起的一个或多个字符。<br><br>在JavaScript中单引号定界的字符串中可以含有双引号，双引号定界的字符串中可以含有单引号。但是双引号定界的字符串中不能包含有双引号，单引号定界的字符串中也不能包含有单引号。<br><br>(3)布尔型JavaScript的布尔型数据也只有true和false两个值。用来说明或代表一种状态或标志。在JavaScript中也可以使用整数0表示false，使用非0的整数表示true。<br><br>(4)转义字符以反斜杠开头的不可显示的特殊字符通常为“控制字符”，也称为“转义字符”。通过转义字符可以在字符串中添加不可显示的特殊字符，或者防止引号匹配混乱的问题。JavaScript常用的转义字符如表2所示。<br><img src="/2020/03/08/note1/2.png" alt="表2"> <br><br>(5)空值JavaScript中有一个空值（null），用于定义空的或不存在的引用。如果试图引用一个没有定义的变量，则返回一个null值。 <br><br>空值不等于空的字符串（””）或0。<br><br>(6)未定义值当使用了一个未声明的变量或者一个已经声明但未赋值的变量时，将返回未定义值（undefined）。<br><br>JavaScript中还有一种特殊类型的数字常量NaN，即“非数字”。当在程序中由于某种原因发生计算错误后，将产生一个没有意义的数字，此时JavaScript返回的数字值即NaN。<br></p>
-<h3 id="应用运算符"><a href="#应用运算符" class="headerlink" title="应用运算符"></a>应用运算符</h3><p>(1)算术运算符JavaScript中的算术运算符执行数学运算，即在程序中执行加、减、乘、除等运算，常用的算术运算符如表3所示。<br><img src="/2020/03/08/note1/3.png" alt="表3"><br>执行除法运算时，0不能作为除数；否则返回结果为Infinity。（2）赋值运算符JavaScript中的赋值运算符可以分为简单赋值运算和复合赋值运算，前者将赋值运算符（=）右边的表达式的值保存到赋值运算符左边的变量中；后者混合了其他操作（算术运算操作及位操作等）和赋值操作。<br><br>JavaScript的常用赋值运算符如表4所示。<br><img src="/2020/03/08/note1/4.png" alt="表4"> <br><br>(3)比较运算符比较运算符的基本操作过程是首先比较操作数，操作数可以是数字和字符串，然后返回一个布尔值true或false。JavaScript支持的常用比较运算符与Java中的常用比较运算符相同。<br><br>(4)逻辑运算符逻辑运算符返回一个布尔值，通常和比较运算符一起使用，用来表示比较运算，常用于if、while和do…while语句中。JavaScript中常用的逻辑运算符如表5所示。<br><img src="/2020/03/08/note1/5.png" alt="表5"> <br><br>(5)条件运算符条件运算符是JavaScript支持的一种特殊的三目运算符，其语法格式如下：<br>擦作数?结果1:结果2<br>如果“操作数”的值为true，则整个表达式的结果为“结果1”；否则为“结果2”。 <br><br>(6)位运算符位运算符用于操作数值的位，在运算前先将操作数转换为32位的二进制数。然后执行相关运算，最后输出结果以十进制表示。JavaScript中常用位操作运算符如表6所示。<br><img src="/2020/03/08/note1/6.png" alt="表6"> <br></p>
-<h3 id="流程控制语句"><a href="#流程控制语句" class="headerlink" title="流程控制语句"></a>流程控制语句</h3><p>1.if条件判断语句<br><br>判断变量或表达式并根据判断结果执行相应处理可以使用if语句，其语法格式如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(expression)&#123;</span><br><span class="line">    statement1</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    statement2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>(1)expression：任意逻辑表达式，用于指定判断条件，通常由比较运算符和逻辑运算符组成。<br><br>(2)statement 1：用于指定要执行的语句序列，当expression的值为true时，执行该语句序列。<br><br>(3)statement 2：用于指定要执行的语句序列，当expression的值为false时，执行该语句序列。<br><br>执行上述if语句时首先计算expression的值，如果为true，则执行statement1，执行后结束该if语句；否则执行statement2，执行后结束该if语句。<br>2.switch语句<br><br>switch是典型的多路分支语句，允许在找不到一个匹配条件的情况下执行默认的一组语句，其语法格式如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(expression)&#123;</span><br><span class="line">    <span class="keyword">case</span> judgement1:</span><br><span class="line">        statement1;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> judgement1:</span><br><span class="line">        statement1;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        defaultstatement;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>(1)expression：任意表达式或变量。<br><br>(2)judgement：任意常数表达式。当expression的值与某个judgement的值相等时，执行此case后的statement语句；否则执行default后面的defaultstatement语句。<br><br>(3)break：用于结束switch语句，从而使JavaScript只执行匹配的分支。如果没有该语句，则执行switch语句的所有分支，switch语句也失去了使用的意义。<br>3.for循环语句<br><br>for循环语句也称为“计次循环语句”，一般用于循环次数已知的情况，在JavaScript中应用比较广泛。其语法格式如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(initialize;test;increment)&#123;</span><br><span class="line">    statement</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>(1)initialize：一条初始化语句，用来为循环变量初始化赋值。<br><br>(2)test：循环条件，一个包含比较运算符的表达式，用来限定循环变量的边限。如果循环变量超过该边限，则停止该循环语句的执行。<br><br>(3)increment：用来指定循环变量的步幅。<br><br>(4)statement：用来指定循环体，在循环条件的结果为true时，重复执行。for循环语句执行的过程是先执行初始化语句，然后判断循环条件。如果循环条件的结果为true，则执行一次循环体；否则直接退出循环。最后执行迭代语句，改变循环变量的值，至此完成一次循环。接下来将进行下一次循环，直到循环条件的结果为false结束循环。<br><br>4.while循环语句<br><br>while循环语句是另一种基本的循环语句，其结构和for循环语句有些类似，但是不包含循环变量的初始化及循环变量的步幅。其语法格式如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(expression)&#123;</span><br><span class="line">    statement</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>(1)expression：一个包含比较运算符的条件表达式，用来指定循环条件。<br><br>(2)statement：用来指定循环体，在循环条件的结果为true时，重复执行。<br><br>(3)while循环语句执行的过程是先判断条件表达式的值，如果为true，则执行循环体并且在循环体执行后进入下一次循环；否则退出循环。<br><br>5.do…while循环语句<br><br>do…while循环语句和while循环语句相似，不同是在循环底部检测循环表达式，这样保证了循环体至少被执行一次。其语法格式如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    statement</span><br><span class="line">&#125;<span class="keyword">while</span>(expression);</span><br></pre></td></tr></table></figure>
-
-<p>(1)statement：用来指定循环体，循环开始时首先执行一次，然后在循环条件的结果为true时重复执行。<br><br>(2)expression：一个包含比较运算符的条件表达式，用来指定循环条件。<br><br>do…while循环语句执行的过程是先执行一次循环体，然后判断条件表达式的值。如果为true，则继续执行；否则退出循环。</p>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>函数由关键字function、函数名加一组参数，以及置于大括号中需要执行的一段代码定义，基本语法格式如下： <br></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">functionName</span>(<span class="params">[parameter <span class="number">1</span>,parameter <span class="number">2</span>,...]</span>)</span>&#123;</span><br><span class="line">    statements;</span><br><span class="line">    [<span class="keyword">return</span> expression;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>(1)functionName：必选，用于指定函数名。在同一个程序中函数名必须是惟一的，并且区分大小写。<br><br>(2)parameter：可选，用于指定参数列表。当使用多个参数时参数间使用逗号分隔，一个函数最多可以有255个参数。<br><br>(3)statements：必选，函数体，用于实现函数功能的语句。<br><br>(4)expression：可选，用于返回函数值，为任意的表达式、变量或常量。</p>
-<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>在处理事件时主要通过为事件指定相应的处理程序来完成相应的操作。在Web应用中，可以通过以下3种方法指定事件处理程序。<br><br>(1)在HTML中直接指定事件处理程序在HTML中分配事件处理程序只需要在HTML标记中添加相应的事件，并为该事件指定要执行的代码或是函数名即可。例如，要在单击“注册”按钮后弹出一个提示对话框，提示单击了“注册”按钮，可以使用下面的代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"bt_resister"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"注册"</span> <span class="attr">onclick</span>=<span class="string">"clickFunction();"</span>&gt;</span></span><br><span class="line">function clickFunction()&#123;</span><br><span class="line">    alert("单击了注册按钮");</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>(2)在JavaScript中直接指定事件处理程序在JavaScript中调用事件处理程序，首先需要获得要处理对象的引用，然后将要执行的处理函数赋值给对应的事件。例如，下面的代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"bt_register"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"注册"</span>&gt;</span>  <span class="comment">&lt;!-- "注册"按钮 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">"javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> b_register=<span class="built_in">document</span>.getElementById(<span class="string">"bt_register"</span>);</span></span><br><span class="line">b_register.onclick=click;</span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">click</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">    alert(<span class="string">"单击了注册按钮"</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>(3)在JavaScript中通过匿名函数指定事件处理程序在JavaScript中通过匿名函数指定事件处理程序与在JavaScript中直接调用事件处理程序一样，也需要先获得要处理对象的引用，然后通过匿名函数的形式将要执行的代码赋值给对应的事件。例如，下面的代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"bt_register"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"注册"</span>&gt;</span>  <span class="comment">&lt;!-- "注册"按钮 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">"javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> b_register=<span class="built_in">document</span>.getElementById(<span class="string">"bt_register"</span>);</span></span><br><span class="line"><span class="actionscript">b_register.onclick=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">    alert(<span class="string">"单击了注册按钮"</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="窗口"><a href="#窗口" class="headerlink" title="窗口"></a>窗口</h3><p>通过window对象的defaultStatus和status属性可以控制窗口的状态栏。<br><br>(1)defaultStatus属性：一个可读写的字符串，用于指定状态栏中的默认文本，这些文本可以在鼠标移动到一个超链接或浏览器的控制按钮上时暂时被URL、上下文帮助信息或其他瞬时文本代替。当鼠标离开这些区域后，又会恢复为默认的文本。defaultStatus属性的语法格式如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.defaultStatus;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.defaultStatus=<span class="string">"..."</span>;</span><br></pre></td></tr></table></figure>
-
-<p>(2)status属性：一个可读写的字符，用于指定状态栏中的当前信息。该状态栏信息的时间是有限的，被其他信息覆盖后将不再显示。该属性的语法格式如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.status;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.status=<span class="string">"..."</span>;</span><br></pre></td></tr></table></figure>
-
-<p>打开新的浏览器窗口<br><br>使用window对象的open()方法可以打开一个新的浏览器窗口，并在其中加载指定URL地址的网页，其语法格式如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Var <span class="built_in">window</span>=<span class="built_in">window</span>.open(url,windowname[,location]);</span><br></pre></td></tr></table></figure>
-
-<h3 id="Date对象"><a href="#Date对象" class="headerlink" title="Date对象"></a>Date对象</h3><p>Date对象是一个有关日期和时间的对象，具有动态性，即必须使用new运算符创建一个实例。例如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dateObj=<span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
-
-<p>Date对象没有提供直接访问的属性，只具有获取和设置日期和时间的方法，其常用方法如表7所示。<br><img src="/2020/03/08/note1/7.png" alt="表7"> <br></p>
-
+    <h1 id="JavaScript学习笔记"><a href="#JavaScript学习笔记" class="headerlink" title="JavaScript学习笔记"></a>JavaScript学习笔记</h1><h2 id="JavaScript语言基础"><a href="#JavaScript语言基础" class="headerlink" title="JavaScript语言基础"></a>JavaScript语言基础</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量指程序中一个已经命名的存储单元，主要作用是为数据操作提供存放信息的容器。在JavaScript中可以使用var声明变量，其语法格式如下：</p>
+    
+    <a class="article-more-a" href="/2020/03/08/note1/#more">more >></a>
+    
     
 
     
@@ -453,11 +344,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -905,7 +796,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+                <a href="javascript:void(0)" class="js-tag color4">xml</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -913,11 +804,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">xml</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
             
             <div class="clearfix"></div>
