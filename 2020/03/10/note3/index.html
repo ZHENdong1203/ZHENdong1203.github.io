@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="JSP学习笔记概述JSP是基于Java语言的动态网页技术，它以“.jsp”为扩展名。在一个JSP页面中可以包括指令标识、HTML代码、JavaScript代码、嵌入的Java代码、注释和JSP动作标识等内容，但这些内容并不是一个JSP页面所必须的。当JSP文件部署到Web应用服务器中后并不能直接回应给浏览器，其运行需要经历4个关键阶段，">
-<meta name="keywords" content="JAVA,note,JSP">
+<meta name="keywords" content="note,JAVA,JSP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSP学习笔记">
 <meta property="og:url" content="http://yoursite.com/2020/03/10/note3/index.html">
@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/03/10/note3/2.png">
 <meta property="og:image" content="http://yoursite.com/2020/03/10/note3/3.png">
 <meta property="og:image" content="http://yoursite.com/2020/03/10/note3/4.png">
-<meta property="og:updated_time" content="2020-03-10T13:02:38.850Z">
+<meta property="og:updated_time" content="2020-03-10T13:08:12.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSP学习笔记">
 <meta name="twitter:description" content="JSP学习笔记概述JSP是基于Java语言的动态网页技术，它以“.jsp”为扩展名。在一个JSP页面中可以包括指令标识、HTML代码、JavaScript代码、嵌入的Java代码、注释和JSP动作标识等内容，但这些内容并不是一个JSP页面所必须的。当JSP文件部署到Web应用服务器中后并不能直接回应给浏览器，其运行需要经历4个关键阶段，">
@@ -272,7 +272,10 @@
 <figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page errorPage=<span class="string">"error.jsp"</span> %&gt;</span><br></pre></td></tr></table></figure>
 
 <p>在error.jsp页面需要通过以下面的代码将该页面设置为错误处理页面：</p>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page isErrorPage=<span class="string">"true"</span> %&gt;</span><br><span class="line">然后在error.jsp页面中即可通过以下代码输出错误提示信息：</span><br><span class="line">```jsp</span><br><span class="line">&lt;%=exception.getMessage()%&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page isErrorPage=<span class="string">"true"</span> %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>然后在error.jsp页面中即可通过以下代码输出错误提示信息：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%=exception.getMessage()%&gt;</span><br></pre></td></tr></table></figure>
 
 <p>（9）session属性：指定当前JSP页面是否支持session，默认值为true，即支持session。 <br><br>（10）isELIgnored属性：指定是否禁用EL表达式，如果为true，该页面将忽略EL表达式；否则将执行EL表达式。<br><br>（11）isThreadSafe属性：指定JSP页面是否是线程安全的，如果为true，则表明JSP页面在同一时间可以被多个线程访问；否则不可。</p>
 <h2 id="文件包含指令include"><a href="#文件包含指令include" class="headerlink" title="文件包含指令include"></a>文件包含指令include</h2><p>include指令是JSP提供的页面包含指令，它可以将一个JSP页面包含到另一个JSP页面中实现JSP页面的重用，包含文件的过程如图所示。<br><img src="/2020/03/10/note3/2.png" alt> <br><br>include指令是静态包含，即被包含文件中所有内容会被原样包含到该JSP页面中。即使被包含文件中有JSP代码，在包含时也不会被编译执行。将两个页面组合成一个页面后编译处理，最后返回结果页面。<br><br>使用include指令最终将生成一个文件，所以在被包含和包含的文件中不能有相同名称的变量；否则会发生编译错误。<br><br>include指令的语法格式如下：</p>
@@ -447,11 +450,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -721,7 +724,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+                <a href="javascript:void(0)" class="js-tag color4">xml</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -729,11 +732,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">xml</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
