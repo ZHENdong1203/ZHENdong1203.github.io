@@ -12,13 +12,13 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="JSP学习笔记（二）JSP内置对象9个内置对象及其应用场合如下。（1）request对象该对象封装了客户端提交的HTTP请求信息，适用于处理客户端提交的信息，在开发Web应用时经常应用request对象获取请求参数的值和获取Cooike数据等。（2）response对象该对象适用于响应客户端请求信息，在开发Web应用时经常应用response对象重定向网页、设置HTTP响应报头和缓冲区配置等。（3">
+  <meta name="description" content="JSP学习笔记（二）JSP内置对象9个内置对象及其应用场合如下。（1）request对象该对象封装了客户端提交的HTTP请求信息，适用于处理客户端提交的信息，在开发Web应用时经常应用request对象获取请求参数的值和获取Cooike数据等。（2）response对象该对象适用于响应客户端请求信息，在开发Web应用时经常应用response对象重定向网页、设置HTTP响应报头和缓冲区配置等。">
 <meta name="keywords" content="JAVA,note,JSP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSP学习笔记（二）">
 <meta property="og:url" content="http://yoursite.com/2020/03/13/note4/index.html">
 <meta property="og:site_name" content="myBlog">
-<meta property="og:description" content="JSP学习笔记（二）JSP内置对象9个内置对象及其应用场合如下。（1）request对象该对象封装了客户端提交的HTTP请求信息，适用于处理客户端提交的信息，在开发Web应用时经常应用request对象获取请求参数的值和获取Cooike数据等。（2）response对象该对象适用于响应客户端请求信息，在开发Web应用时经常应用response对象重定向网页、设置HTTP响应报头和缓冲区配置等。（3">
+<meta property="og:description" content="JSP学习笔记（二）JSP内置对象9个内置对象及其应用场合如下。（1）request对象该对象封装了客户端提交的HTTP请求信息，适用于处理客户端提交的信息，在开发Web应用时经常应用request对象获取请求参数的值和获取Cooike数据等。（2）response对象该对象适用于响应客户端请求信息，在开发Web应用时经常应用response对象重定向网页、设置HTTP响应报头和缓冲区配置等。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2020/03/13/note4/1.png">
 <meta property="og:image" content="http://yoursite.com/2020/03/13/note4/2.png">
@@ -26,10 +26,10 @@
 <meta property="og:image" content="http://yoursite.com/2020/03/13/note4/4.png">
 <meta property="og:image" content="http://yoursite.com/2020/03/13/note4/5.png">
 <meta property="og:image" content="http://yoursite.com/2020/03/13/note4/6.png">
-<meta property="og:updated_time" content="2020-03-13T09:21:14.662Z">
+<meta property="og:updated_time" content="2020-03-13T10:28:56.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSP学习笔记（二）">
-<meta name="twitter:description" content="JSP学习笔记（二）JSP内置对象9个内置对象及其应用场合如下。（1）request对象该对象封装了客户端提交的HTTP请求信息，适用于处理客户端提交的信息，在开发Web应用时经常应用request对象获取请求参数的值和获取Cooike数据等。（2）response对象该对象适用于响应客户端请求信息，在开发Web应用时经常应用response对象重定向网页、设置HTTP响应报头和缓冲区配置等。（3">
+<meta name="twitter:description" content="JSP学习笔记（二）JSP内置对象9个内置对象及其应用场合如下。（1）request对象该对象封装了客户端提交的HTTP请求信息，适用于处理客户端提交的信息，在开发Web应用时经常应用request对象获取请求参数的值和获取Cooike数据等。（2）response对象该对象适用于响应客户端请求信息，在开发Web应用时经常应用response对象重定向网页、设置HTTP响应报头和缓冲区配置等。">
 <meta name="twitter:image" content="http://yoursite.com/2020/03/13/note4/1.png">
   
     <link rel="alternative" href="/atom.xml" title="myBlog" type="application/atom+xml">
@@ -262,7 +262,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="JSP学习笔记（二）"><a href="#JSP学习笔记（二）" class="headerlink" title="JSP学习笔记（二）"></a>JSP学习笔记（二）</h1><h2 id="JSP内置对象"><a href="#JSP内置对象" class="headerlink" title="JSP内置对象"></a>JSP内置对象</h2><p>9个内置对象及其应用场合如下。<br><br>（1）request对象该对象封装了客户端提交的HTTP请求信息，适用于处理客户端提交的信息，在开发Web应用时经常应用request对象获取请求参数的值和获取Cooike数据等。<br><br>（2）response对象该对象适用于响应客户端请求信息，在开发Web应用时经常应用response对象重定向网页、设置HTTP响应报头和缓冲区配置等。<br><br>（3）session对象该对象适用于在同一个应用程序中每个客户端的各个页面中共享数据，session对象通常应用在保存用户/管理员信息和购物车信息等。<br><br>（4）application对象该对象适用于在同一个应用程序中各个用户间共享数据，application对象通常应用在计数器或是聊天室中。<br><br>（5）out对象该对象适用于向客户端输出各种类型的数据，通常用来在JSP页面中输出文本。<br><br>（6）page对象该对象适用于操作JSP页面自身，在开发Web应用时很少应用。<br><br>（7）config对象该对象适用于读取服务器的配置信息。<br><br>（8）exception对象该对象适用于操作JSP文件执行时发生的异常信息。<br><br>（9）pageContext对象该对象适用于获取JSP页面的request、response、session、application和out等对象。由于这些对象均为JSP的内置对象，所以在实例Web应用开发时很少使用pageContext对象，而是直接使用相应的内置对象。</p>
+    <h1 id="JSP学习笔记（二）"><a href="#JSP学习笔记（二）" class="headerlink" title="JSP学习笔记（二）"></a>JSP学习笔记（二）</h1><h2 id="JSP内置对象"><a href="#JSP内置对象" class="headerlink" title="JSP内置对象"></a>JSP内置对象</h2><p>9个内置对象及其应用场合如下。<br><br>（1）request对象该对象封装了客户端提交的HTTP请求信息，适用于处理客户端提交的信息，在开发Web应用时经常应用request对象获取请求参数的值和获取Cooike数据等。<br><br>（2）response对象该对象适用于响应客户端请求信息，在开发Web应用时经常应用response对象重定向网页、设置HTTP响应报头和缓冲区配置等。<a id="more"></a><br><br>（3）session对象该对象适用于在同一个应用程序中每个客户端的各个页面中共享数据，session对象通常应用在保存用户/管理员信息和购物车信息等。<br><br>（4）application对象该对象适用于在同一个应用程序中各个用户间共享数据，application对象通常应用在计数器或是聊天室中。<br><br>（5）out对象该对象适用于向客户端输出各种类型的数据，通常用来在JSP页面中输出文本。<br><br>（6）page对象该对象适用于操作JSP页面自身，在开发Web应用时很少应用。<br><br>（7）config对象该对象适用于读取服务器的配置信息。<br><br>（8）exception对象该对象适用于操作JSP文件执行时发生的异常信息。<br><br>（9）pageContext对象该对象适用于获取JSP页面的request、response、session、application和out等对象。由于这些对象均为JSP的内置对象，所以在实例Web应用开发时很少使用pageContext对象，而是直接使用相应的内置对象。</p>
 <h2 id="request请求对象"><a href="#request请求对象" class="headerlink" title="request请求对象"></a>request请求对象</h2><p>request对象封装了由客户端生成的HTTP请求的所有细节，主要包括HTTP头信息、请求方式和请求参数等，通过该对象提供的相应方法可以获取客户端请求之中的信息。</p>
 <h3 id="获取请求参数"><a href="#获取请求参数" class="headerlink" title="获取请求参数"></a>获取请求参数</h3><p>客户端向服务器端发送一个请求时，通常情况下会包含一些请求参数。如请求删除数据库中的一条信息时，需要在请求之中传递一个主键值，在传递的过程中其参数加载在reqeust对象中。<br><br>当通过超链接的形式发送请求时可以为该请求传递参数，可以通过在超链接的后面加上问号“? ”来实现，注意这个问号为英文半角。例如，发送一个请求到delete.jsp页面并传递一个名为“id”的参数，可以通过以下超链接实现：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href="delete.jsp? id=1"&gt;删除&lt;/a&gt;</span><br></pre></td></tr></table></figure>
