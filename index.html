@@ -204,6 +204,289 @@
             
 
   
+    <article id="post-note7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/03/17/note7/">JSTL</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/03/17/note7/" class="archive-article-date">
+        <time datetime="2020-03-17T08:04:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="JSTL"><a href="#JSTL" class="headerlink" title="JSTL"></a>JSTL</h1><h2 id="JSTL标签库"><a href="#JSTL标签库" class="headerlink" title="JSTL标签库"></a>JSTL标签库</h2><p>虽然JSTL称为“标准标签库”，实际上它由5个功能不同的标签库组成，分别是核心标签库、格式标签库、SQL标签库、XML标签库和函数标签库等。在使用这些标签之前必须在JSP页面的顶部使用&lt;%@ taglib%&gt;指令定义引用的标签库和访问前缀，如使用核心标签库的taglib指令格式如下：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib prefix=<span class="string">"c"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>使用格式标签库的taglib指令格式如下：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib prefix=<span class="string">"fmt"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/fmt"</span> %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>使用SQL标签库的taglib指令格式如下：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib prefix=<span class="string">"sql"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/sql"</span> %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>使用XML标签库的taglib指令格式如下：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib prefix=<span class="string">"xml"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/xml"</span> %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>使用函数标签库的taglib指令格式如下：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib prefix=<span class="string">"fn"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/functions"</span> %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>下面介绍JSTL提供的5个标签库。<br><br>（1）核心标签库<br><br>核心标签库主要用于完成JSP页面的常用功能，包括JSTL的表达式标签、URL标签、流程控制标签和循环标签共4种标签。其中表达式标签包括&lt;c:out&gt;、&lt;c:set&gt;、&lt;c:remove&gt;和&lt;c:catch&gt;;URL标签包括&lt;c:import&gt;、&lt;c:redirect&gt;、&lt;c:url&gt;和&lt;c:param&gt;；流程控制标签包括&lt;c:if&gt;、&lt;c:choose&gt;、&lt;c:when&gt;和&lt;c:otherwise&gt;；循环标签包括&lt;c:forEach&gt;和&lt;c:otherwise&gt;，这些标签的基本作用如表1所示。<br><img src="/2020/03/17/note7/1.png" alt> <br><br>（2）格式标签库<br><br>格式标签库提供了一个简单的国际化标记，也称为“I18N标签库”，用于处理和解决与国际化相关的问题；另外该标签库中包含用于格式化数字和日期显示格式的标签。由于该标签库在实际项目开发中并不经常应用，所以不详细介绍。<br><br>（3）SQL标签库<br><br>SQL标签库提供了基本的访问关系型数据的能力，使用该标签可以简化对数据库的访问。如果结合核心标签库，则可以方便地获取结果集并迭代输出结果集中的数据。由于该标签库在实际项目开发中并不经常应用，所以不详细介绍。<br><br>（4）XML标签库<br><br>XML标签库可以处理和生成XML的标记，使用这些标记可以很方便地开发基于XML的Web应用。由于该标签库在实际项目开发中并不经常应用，所以不详细介绍。<br><br>（5）函数标签库<br><br>函数标签库提供了一系列字符串操作函数，用于完成分解字符串、连接字符串、返回子串，以及确定字符串是否包含特定的子串等功能。由于该标签库在实际项目开发中并不经常应用，所以不详细介绍。</p>
+<h2 id="表达式标签"><a href="#表达式标签" class="headerlink" title="表达式标签"></a>表达式标签</h2><p>在JSTL的核心标签库中，包括&lt;c:out&gt;、&lt;c:set&gt;、&lt;c:remove&gt;和&lt;c:catch&gt;标签4个表达式标签。<br></p>
+<h3 id="lt-c-out-gt-标签"><a href="#lt-c-out-gt-标签" class="headerlink" title="&lt;c:out&gt;标签"></a>&lt;c:out&gt;标签</h3><p>&lt;c:out&gt;标签用于将表达式的值输出到JSP页面中，该标签类似JSP的表达式&lt;%=表达式%&gt;，或者EL表达式${expression}。它有两种语法格式，一种没有标签体；另一种有标签体，这两种语言的输出结果完全相同。&lt;c:out&gt;标签的语法格式如下：语法1——没有标签体：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:out value=<span class="string">"expression"</span> [escapeXml=<span class="string">"true--false"</span>] [<span class="keyword">default</span>=<span class="string">"defaultValue"</span>]/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法2——有标签体：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:out value=<span class="string">"expression"</span> [escapeXml=<span class="string">"true--false"</span>] [<span class="keyword">default</span>=<span class="string">"defaultValue"</span>]&gt;</span><br><span class="line">&lt;/c:out&gt;</span><br></pre></td></tr></table></figure>
+
+<p>（1）value属性：用于指定将要输出的变量或表达式，类似Object，可以使用EL。<br><br>（2）escapeXml属性：可选，用于指定是否转换特殊字符。默认值为true，表示转换。例如，将“&lt;”转换为“&lt; ”。可以被转换的字符如表2所示。<br><img src="/2020/03/17/note7/2.png" alt> <br><br>（3）default属性：可选，用于指定当value属性值等于null时，将要显示的默认值。如果没有指定该属性，并且value属性的值为null，该标签将输出空的字符串。</p>
+<h3 id="lt-c-set-gt-标签"><a href="#lt-c-set-gt-标签" class="headerlink" title="&lt;c:set&gt;标签"></a>&lt;c:set&gt;标签</h3><p>&lt;c:set&gt;标签用于在指定范围（page、request、session或application）中定义保存某个值的变量，或为指定的对象设置属性值。使用该标签可以在页面中定义变量，而不用在JSP页面中嵌入打乱HTML排版的Java代码。&lt;c:set&gt;标签的4种语法格式如下。语法1：在scope指定的范围内将变量值保存到变量中：<br><br>语法1：在scope指定的范围内将变量值保存到变量中：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:set <span class="keyword">var</span>=<span class="string">"name"</span> value=<span class="string">"value"</span> [scope=<span class="string">"范围"</span>]/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法2：在scope指定的范围内将标签体保存到变量中：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:set <span class="keyword">var</span>=<span class="string">"name"</span> [scope=<span class="string">"page--request--session--application"</span>]/&gt;</span><br><span class="line">    标签体</span><br><span class="line">&lt;/c:set&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法3：将变量值保存在target属性指定的目标对象的propName属性中：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:set <span class="keyword">var</span>=<span class="string">"name"</span> target=<span class="string">"object"</span> property=<span class="string">"propName"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法4：将标签体保存到target属性指定的目标对象的propName属性中：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:set target=<span class="string">"object"</span> property=<span class="string">"propName"</span>&gt;</span><br><span class="line">    标签体</span><br><span class="line">&lt;/c:set&gt;    </span><br><span class="line">```    </span><br><span class="line">（1）var属性：用于指定变量名，通过该标签定义的变量名可以通过EL指定为&lt;c:out&gt;的value属性值。&lt;/br&gt;</span><br><span class="line">（2）value属性：用于指定变量值，可以使用EL。&lt;/br&gt;</span><br><span class="line">（3）scope属性：用于指定变量的作用域，默认值是page，可选值包括page、request、session和application。&lt;/br&gt;</span><br><span class="line">（4）target属性：用于指定存储变量值或者标签体的目标对象，可以是JavaBean或Map集合对象。&lt;/br&gt;</span><br><span class="line">target属性不能是直接指定的JavaBean或Map，而应该是使用EL表达式或一个脚本表达式指定的对象。这个对象可以通过&lt;jsp:useBean&gt;指定。例如，要为JavaBean“CartForm”的id属性赋值，那么target属性值应该是target="$&#123;cart&#125;"。而不应该是target="cart"。其中cart为CartForm的对象。&lt;/br&gt;</span><br><span class="line">（<span class="number">5</span>）property属性：用于指定目标对象保存数据的属性名。</span><br><span class="line">### &lt;c:remove&gt;标签</span><br><span class="line">&lt;c:remove&gt;标签用于移除指定的JSP范围内的变量，其语法格式如下：</span><br><span class="line">```jsp</span><br><span class="line">&lt;c:remove <span class="keyword">var</span>=<span class="string">"name"</span> [scope=<span class="string">"范围"</span>]/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>（1）var属性：用于指定要移除的变量名。<br><br>（2）scope属性：用于指定变量的有效范围，可选值有page、request、session和application，默认值是page。如果在该标签中没有指定变量的有效范围，那么将分别在page、request、session和application的范围内查找并移除要移除的变量。例如，在一个页面中存在不同范围的两个同名变量。当未指定范围时移除该变量，这两个范围内的变量均将被移除。为此在移除变量时，最好指定变量的有效范围。<br><br>当指定的要移除的变量不存在时，并不会抛出异常。 <br></p>
+<h3 id="lt-c-catch-gt-标签"><a href="#lt-c-catch-gt-标签" class="headerlink" title="&lt;c:catch&gt;标签"></a>&lt;c:catch&gt;标签</h3><p>&lt;c:catch&gt;标签用于捕获程序中出现的异常，如果需要，还可以将异常信息保存在指定的变量中。该标签与Java语言中的try…catch语句类似，其语法格式如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:<span class="keyword">catch</span> [<span class="keyword">var</span>=<span class="string">"exception"</span>]&gt;</span><br><span class="line">... <span class="comment">//可能存在异常的代码</span></span><br><span class="line">&lt;/c:catch&gt;</span><br></pre></td></tr></table></figure>
+
+<p>var属性为可选，用于指定保存异常信息的变量。如果不需要保存异常信息，可以省略该属性。<br><br>var属性值只有在&lt;c:catch&gt;标签的后面才有效，即在&lt;c:catch&gt;标签体中无法使用有关异常的任何信息。</p>
+<h2 id="URL相关标签"><a href="#URL相关标签" class="headerlink" title="URL相关标签"></a>URL相关标签</h2><p>文件导入、重定向和URL地址生成是Web应用中常用的功能，JSTL中提供了与URL相关的标签，分别是&lt;c:import&gt;、&lt;c:redirect&gt;、&lt;c:url&gt;和&lt;c:param&gt;标签，其中&lt;c:param&gt;标签通常与其他标签配合使用。</p>
+<h3 id="lt-c-import-gt-标签"><a href="#lt-c-import-gt-标签" class="headerlink" title="&lt;c:import&gt;标签"></a>&lt;c:import&gt;标签</h3><p>&lt;c:import&gt;标签可以导入站内或其他网站的静态和动态文件到Web页面中，如使用该标签导入其他网站的天气信息到自己的网页中。&lt;c:import&gt;标签与<a href="jsp:include" target="_blank" rel="noopener">jsp:include</a>动作指令类似，不同是<a href="jsp:include" target="_blank" rel="noopener">jsp:include</a>只能导入站内资源；而&lt;c:import&gt;标签不仅可以导入站内资源，也可以导入其他网站的资源。<br><br>&lt;c:import&gt;标签的语法格式如下。<br><br>语法1：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:<span class="keyword">import</span> url=<span class="string">"url"</span> [context=<span class="string">"context"</span>] [<span class="keyword">var</span>=<span class="string">"name"</span>] [scope=<span class="string">"范围"</span>] [charEncoding=<span class="string">"encoding"</span>]&gt;</span><br><span class="line">     [标签体]</span><br><span class="line">&lt;/c:import&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法2：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:<span class="keyword">import</span> url=<span class="string">"url"</span> varReader=<span class="string">"name"</span> [context=<span class="string">"context"</span>] [charEncoding=<span class="string">"encoding"</span>]&gt;</span><br><span class="line">     [标签体]</span><br><span class="line">&lt;/c:import&gt;</span><br><span class="line">```     </span><br><span class="line">1）url属性：用于指定被导入文件资源的URL地址。&lt;/br&gt;</span><br><span class="line">如果指定的url属性为null、空或者无效，将抛出“javax.servlet.ServletException”异常。例如，如果指定url属性值为url.jsp，而与当前面同级的目录中并不存在url.jsp文件，将抛出“javax.servlet.ServletException: File &amp;quot; /url.jsp&amp;quot; not found”异常。&lt;/br&gt;</span><br><span class="line">（2）context属性：上下文路径，用于访问同一台服务器的其他Web应用，其值必须以“/”开头。如果指定了该属性，那么url属性值也必须以“/”开头。&lt;/br&gt;</span><br><span class="line">（3）var属性：用于指定变量名称，该变量用于以String类型保存获取的资源。&lt;/br&gt;</span><br><span class="line">（4）scope属性：用于指定变量的存在范围，默认值为page，可选值有page、request、session和application。&lt;/br&gt;</span><br><span class="line">（5）varReader属性：用于指定一个变量名，该变量用于以Reader类型保存被包含文件内容。导出的Reader对象只能在&lt;c:import&gt;标记的开始和结束标签之间使用。&lt;/br&gt;</span><br><span class="line">（6）charEncoding属性：用于指定被导入文件的编码格式。&lt;/br&gt;</span><br><span class="line">（<span class="number">7</span>）标签体：可选，如果需要为导入的文件传递参数，则可以在标签体的位置通过&lt;c:param&gt;标签设置参数。</span><br><span class="line">### &lt;c:url&gt;标签</span><br><span class="line">&lt;c:url&gt;标签用于生成一个URL路径的字符串，该字符串可以赋予HTML的&lt;a标记实现URL的连接，或者用其实现网页转发与重定向等。在使用该标签生成URL时，还可以与&lt;c:param&gt;标签相结合动态添加URL的参数信息。&lt;c:url&gt;标签的语法格式如下。&lt;/br&gt;</span><br><span class="line">语法<span class="number">1</span>：</span><br><span class="line">```jsp</span><br><span class="line">&lt;c:url value=:url [<span class="keyword">var</span>=<span class="string">"name"</span>] [scope=<span class="string">"范围"</span>] [context=<span class="string">"context"</span>]/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>该语法将输出产生的URL字符串信息，如果指定了var和scope属性，不再输出相应的URL信息，而是保存在变量中以备后用。<br><br>语法2：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:url value=:url [<span class="keyword">var</span>=<span class="string">"name"</span>] [scope=<span class="string">"范围"</span>] [context=<span class="string">"context"</span>]&gt;</span><br><span class="line">   &lt;c:param/&gt;</span><br><span class="line">   ...  &lt;!-- 可以有多个&lt;c:param&gt;标签 --&gt;</span><br><span class="line">&lt;/c:url&gt;</span><br></pre></td></tr></table></figure>
+
+<p>该语法不仅实现了语法1的功能，而且还可以搭配&lt;c:param&gt;标签完成带参数的复杂URL信息。<br><br>（1）value属性：用于指定将要处理的URL地址，可以使用EL。<br><br>（2）context属性：上下文路径，用于访问同一个服务器的其他Web工程，其值必须以“/”开头。如果指定了该属性，那么url属性值也必须以“/”开头。<br><br>（3）var属性：用于指定变量名，该变量用于保存新生成的URL字符串。<br><br>（4）scope属性：用于指定变量的存在范围。   <br></p>
+<h3 id="lt-c-redirect-gt-标签"><a href="#lt-c-redirect-gt-标签" class="headerlink" title="&lt;c:redirect&gt;标签"></a>&lt;c:redirect&gt;标签</h3><p>&lt;c:redirect&gt;标签可以将客户端发出的request请求重定向到其他URL服务端，由其他程序处理客户的请求。在这个期间可以修改或添加request请求中的属性，然后把所有属性传递到目标路径。该标签的语法格式如下。<br><br>语法1：该语法格式没有标签体，并且不添加传递到目标路径的参数信息：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:redirect url=<span class="string">"url"</span> [context=<span class="string">"/context"</span>]/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法2：该语法格式将客户请求重定向到目标路径，并且在标签体中使用&lt;c:param&gt;标签传递其他参数信息：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:redirect url=<span class="string">"url"</span> [context=<span class="string">"/context"</span>]&gt;</span><br><span class="line">    &lt;c:param/&gt;</span><br><span class="line">    ... &lt;!-- 可以有多个&lt;c:param&gt;标签 --&gt;</span><br><span class="line">&lt;/c:redirect&gt;</span><br></pre></td></tr></table></figure>
+
+<p>（1）url属性：必选，用于指定待定向资源的URL，可以使用EL。<br><br>（2）context属性：用于在使用相对路径访问外部context资源时指定资源名。</p>
+<h3 id="lt-c-param-gt-标签"><a href="#lt-c-param-gt-标签" class="headerlink" title="&lt;c:param&gt;标签"></a>&lt;c:param&gt;标签</h3><p>&lt;c:param&gt;标签用于为其他标签提供参数信息，与&lt;c:import&gt;、&lt;c:redirect&gt;和&lt;c:url&gt;标签组合可以实现动态定制参数，从而使标签可以完成更复杂的程序应用。该标签的语法格式如下：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:param name=<span class="string">"paramName"</span> value=<span class="string">"paramValue"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>（1）name属性：用于指定参数名，可以引用EL。如果参数名为null或是空，该标签将不起任何作用。<br><br>（2）value属性：用于指定参数值，可以引用EL。如果参数值为null，则作为空值处理。</p>
+<h2 id="流程控制标签"><a href="#流程控制标签" class="headerlink" title="流程控制标签"></a>流程控制标签</h2><p>流程控制在程序中会根据不同条件执行不同代码来产生不同的运行结果，使用流程控制可以处理程序中的任何可能发生的事件。在JSTL中包含&lt;c:if&gt;、&lt;c:choose&gt;、&lt;c:when&gt;和&lt;c:otherwise&gt;标签共4种流程控制标签。</p>
+<h3 id="lt-c-if-gt-标签"><a href="#lt-c-if-gt-标签" class="headerlink" title="&lt;c:if&gt;标签"></a>&lt;c:if&gt;标签</h3><p>&lt;c:if&gt;标签可以根据不同条件处理不同的业务，与Java语言中的if语句类似。不过if语句没有else标签。&lt;c:if&gt;标签有两种语法格式。和&lt;c:otherwise&gt;标签可以实现if else的功能。虽然&lt;c:if&gt;标签没有对应的else标签，但是JSTL提供了&lt;c:choose&gt;、&lt;c:when&gt;<br><br>语法1：判断条件表达式并将判断结果保存在var属性指定的变量中，而这个变量存在于scope属性所指定的范围中：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:<span class="keyword">if</span> test=<span class="string">"condition"</span> <span class="keyword">var</span>=<span class="string">"name"</span> [scope=page--request--session-application]/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法2：该语法格式不但可以将test属性的判断结果保存在指定范围的变量中，而且可以根据条件的判断结果执行标签体。标签体可以是JSP页面能够使用的任何元素，如HTML标记、Java代码或者嵌入其他JSP标签：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:<span class="keyword">if</span> test=<span class="string">"condition"</span> <span class="keyword">var</span>=<span class="string">"name"</span> [scope=<span class="string">"范围"</span>]&gt;</span><br><span class="line">    标签体</span><br><span class="line">&lt;/c:if&gt;</span><br></pre></td></tr></table></figure>
+
+<p>（1）test属性：必选，用于指定条件表达式，可以使用EL。<br><br>（2）var属性：可选，用于指定变量名，该变量用于保存test属性的判断结果。如果该变量不存在，则创建它。<br><br>（3）scope属性：用于指定变量的有效范围，默认值为page，可选值有page、request、session和application。    </p>
+<h3 id="lt-c-choose-gt-标签"><a href="#lt-c-choose-gt-标签" class="headerlink" title="&lt;c:choose&gt;标签"></a>&lt;c:choose&gt;标签</h3><p>&lt;c:choose&gt;标签可以根据不同条件完成指定的业务逻辑，如果没有符合条件，则执行默认条件的业务逻辑。该标签只能作为&lt;c:when&gt;和&lt;c:otherwise&gt;标签的父标签，而要实现条件选择逻辑可以在&lt;c:choose&gt;标签中嵌套&lt;c:when&gt;和&lt;c:otherwise&gt;标签来完成。该标签的语法格式如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:choose&gt;</span><br><span class="line">     标签体 &lt;!-- 由&lt;c:when&gt;标签和&lt;c:otherwise&gt;标签组成 --&gt;</span><br><span class="line">&lt;/c:choose&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&lt;c:choose&gt;标签没有相关属性，只是作为&lt;c:when&gt;和&lt;c:otherwise&gt;标签的父标签来使用。并且在该标签中除了空白字符外，只能包括&lt;c:when&gt;和&lt;c:otherwise&gt;标签。<br><br>在一个&lt;c:choose&gt;标签中可以包含多个&lt;c:when&gt;标签来处理不同条件的业务逻辑，但是只能有一个&lt;c:otherwise&gt;标签来处理默认条件的业务逻辑。<br><br>在运行时首先判断&lt;c:when&gt;标签的条件是否为true。如果为true，则将&lt;c:when&gt;标签体中的内容显示在页面中；否则判断下一个&lt;c:when&gt;标签的条件。如果该标签的条件也不满足，则继续判断下一个&lt;c:when&gt;标签，直到&lt;c:otherwise&gt;标签体被执行。    </p>
+<h3 id="lt-c-when-gt-标签"><a href="#lt-c-when-gt-标签" class="headerlink" title="&lt;c:when&gt;标签"></a>&lt;c:when&gt;标签</h3><p>&lt;c:when&gt;条件测试标签是&lt;c:choose&gt;标签的子标签，它根据不同的条件执行相应的业务逻辑。可以存在多个&lt;c:when&gt;标签来处理不同条件的业务逻辑，其语法格式如下： </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:when test=<span class="string">"condition"</span>&gt;</span><br><span class="line">    标签体</span><br><span class="line">&lt;/c:when&gt;</span><br></pre></td></tr></table></figure>
+
+<p>test属性为条件表达式，这是&lt;c:when&gt;标签必须定义的属性，它可以引用EL表达式。<br><br>在&lt;c:choose&gt;标签中必须有一个&lt;c:when&gt;标签，但是&lt;c:otherwise&gt;标签为可选。如果省略，当所有的&lt;c:when&gt;标签都不满足条件时，将不会处理&lt;c:choose&gt;标签的标签体。<br><br>&lt;c:when&gt;标签必须出现在&lt;c:otherwise&gt;标签之前。    </p>
+<h3 id="lt-c-otherwise-gt-标签"><a href="#lt-c-otherwise-gt-标签" class="headerlink" title="&lt;c:otherwise&gt;标签"></a>&lt;c:otherwise&gt;标签</h3><p>&lt;c:otherwise&gt;标签也是&lt;c:choose&gt;标签的子标签，用于定义&lt;c:choose&gt;标签中的默认条件处理逻辑。如果没有任何一个结果满足&lt;c:when&gt;标签指定的条件，将会执行这个标签体中定义的逻辑代码，在&lt;c:choose&gt;标签范围内只能存在一个该标签的定义。&lt;c:otherwise&gt;标签的语法格式如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:otherwise&gt;</span><br><span class="line">   标签体</span><br><span class="line">&lt;/c:otherwise&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&lt;c:otherwise&gt;标签必须定义在所有&lt;c:when&gt;标签的后面，即它是&lt;c:choose&gt;标签的最后一个子标签。</p>
+<h2 id="循环标签"><a href="#循环标签" class="headerlink" title="循环标签"></a>循环标签</h2><h3 id="lt-c-forEach-gt-标签"><a href="#lt-c-forEach-gt-标签" class="headerlink" title="&lt;c:forEach&gt;标签"></a>&lt;c:forEach&gt;标签</h3><p>&lt;c:forEach&gt;循环标签可以根据循环条件遍历数组和集合类中的所有或部分数据，如在使用Hibernate技术访问数据库时返回的数组、java.util.List和java.util.Map对象。它们封装了从数据库中查询的数据，这些数据都是JSP页面需要的。如果在JSP页面中使用Java代码来循环遍历所有数据，会使页面非常混乱，不易分析和维护。使用JSTL的&lt;c:forEach&gt;标签循环显示这些数据不但可以解决JSP页面混乱的问题，而且也提高了代码的可维护性。<br><br>&lt;c:forEach&gt;标签的语法格式如下。<br><br>语法1：集合成员迭代：   </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach items=<span class="string">"data"</span> [<span class="keyword">var</span>=<span class="string">"name"</span>] [begin=<span class="string">"start"</span>] [end=<span class="string">"finish"</span>] [step=<span class="string">"step"</span>] [varStatus=<span class="string">"statusName"</span>]&gt;</span><br><span class="line">     标签体</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其中items属性是必选属性，通常使用EL指定，其他属性均为可选属性。<br><br>语法2：数字索引迭代：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach begin=<span class="string">"start"</span> end=<span class="string">"finish"</span> [<span class="keyword">var</span>=<span class="string">"name"</span>] [varStatus=<span class="string">"statusName"</span>] [step=<span class="string">"step"</span>]&gt;</span><br><span class="line">     标签体</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其中begin和end属性是必选的属性，其他属性均为可选属性。<br><br>（1）items属性：用于指定被循环遍历的对象，多用于数组与集合类。其值可以是数组、集合类、字符串和枚举类型，并且可以通过EL指定。<br><br>（2）var属性：用于指定循环体的变量名，该变量用于保存items指定的对象的成员。<br><br>（3）begin属性：用于指定循环的起始位置，如果没有指定，则从集合的第1个值开始迭代。可以使用EL。<br><br>（4）end属性：用于指定循环的终止位置，如果没有指定，则一直迭代到集合的最后一位。可以使用EL。<br><br>（5）step属性：用于指定循环的步长，可以使用EL。<br><br>（6）varStatus属性：用于指定循环的状态变量，该属性还有4个状态属性，如表3所示。如果要在循环的过程中得到循环计数，可以应用varStatus属性的状态属性count。<br><img src="/2020/03/17/note7/3.png" alt> <br><br>（7）标签体：可以是JSP页面中可显示的任何元素。</p>
+<h3 id="lt-c-forTokens-gt-标签"><a href="#lt-c-forTokens-gt-标签" class="headerlink" title="&lt;c:forTokens&gt;标签"></a>&lt;c:forTokens&gt;标签</h3><p>&lt;c:forTokens&gt;迭代标签可以用指定的分隔符分割一个字符串，根据分割的数量确定循环的次数，其语法格式如下： </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forTokens items=<span class="string">"String"</span> delims=<span class="string">"char"</span> [<span class="keyword">var</span>=<span class="string">"name"</span>] [begin=<span class="string">"start"</span>] [end=<span class="string">"end"</span>] [step=<span class="string">"len"</span>] [varStatus=<span class="string">"statusName"</span>]&gt;</span><br><span class="line">    标签体</span><br><span class="line">&lt;/c:forTokens&gt;</span><br></pre></td></tr></table></figure>
+
+<p>（1）items属性：用于指定要迭代的String对象，该字符串通常由指定的分隔符分隔。<br><br>（2）delims属性：用于指定分隔字符串的分隔符，可以同时有多个分隔符。<br><br>（3）var属性：用于指定变量名，该变量保存分隔后的字符串。<br><br>（4）begin属性：用于指定迭代开始的位置，索引值从0开始。<br><br>（5）end属性：用于指定迭代的结束位置。<br><br>（6）step属性：用于指定迭代的步长，默认步长为1。<br><br>（7）varStatus属性：用于指定循环的状态变量，同&lt;c:forEach&gt;标签，该属性也有4个状态属性。<br><br>（8）标签体：可以是JSP页面可显示的任何元素。    </p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JSTL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/03/17/note7/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-note6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/03/17/note6/">EL表达式</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/03/17/note6/" class="archive-article-date">
+        <time datetime="2020-03-17T04:28:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="EL表达式"><a href="#EL表达式" class="headerlink" title="EL表达式"></a>EL表达式</h1><h2 id="EL的基本语法"><a href="#EL的基本语法" class="headerlink" title="EL的基本语法"></a>EL的基本语法</h2><p>EL的基本语法很简单，它以“${”开头，以“}”结束，中间为合法的表达式。其语法格式如下：</p>
+    
+    <a class="article-more-a" href="/2020/03/17/note6/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JSP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/03/17/note6/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-note5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -329,11 +612,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -425,11 +708,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -521,11 +804,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">xml</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">xml</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
         		</li>
       		
 		</ul>
@@ -613,11 +896,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1065,7 +1348,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+                <a href="javascript:void(0)" class="js-tag color4">xml</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1073,15 +1356,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">xml</a>
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSTL</a>
               </li>
             
             <div class="clearfix"></div>
