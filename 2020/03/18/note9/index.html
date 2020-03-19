@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/03/18/note9/13.png">
 <meta property="og:image" content="http://yoursite.com/2020/03/18/note9/14.png">
 <meta property="og:image" content="http://yoursite.com/2020/03/18/note9/15.png">
-<meta property="og:updated_time" content="2020-03-18T11:22:02.180Z">
+<meta property="og:updated_time" content="2020-03-19T09:05:35.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解析XML">
 <meta name="twitter:description" content="解析XMLDOM技术DOM（Document Object Model，文档对象模型）早在XML之前已经存在，Microsoft Explorer中就嵌入了DOM模型。在应用程序中基于DOM的XML分析器将一个XML文档转换为一个对象模型的集合（通常称“DOM树”），来实现对XML文档数据的操作。通过DOM接口，应用程序可以在任何时候访问XML文档中的任何一部分数据，因此这种利用DOM接口的机制也">
@@ -314,8 +314,8 @@
 <p>该方法中的参数如表15所示。<br><img src="/2020/03/18/note9/15.png" alt> <br><br>endElement()方法：在发现元素结束标签时激活此方法来完成元素读取后的操作。<br><br>语法格式如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">endElement</span><span class="params">(String namespaceURI,String localName,String qName)</span> <span class="keyword">throws</span> SAXException</span>&#123;</span><br><span class="line">    ...<span class="comment">//事件处理</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>Qname为元素的名称。<br><br>endDocument()方法：XML文档的结束事件，可以在其中放置处理解析文档结束时的代码。<br><br>语法格式如下：<br>```java<br>public void endDocument(){<br>    …//事件处理<br>}</p>
-
+<p>Qname为元素的名称。<br><br>endDocument()方法：XML文档的结束事件，可以在其中放置处理解析文档结束时的代码。<br><br>语法格式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">endDocument</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ...<span class="comment">//事件处理</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     
 
     
