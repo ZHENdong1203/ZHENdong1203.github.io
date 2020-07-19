@@ -2,9 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2020/03/19/note10/</loc>
+    <loc>http://yoursite.com/2020/03/27/note11/</loc>
     
-    <lastmod>2020-03-19T09:19:52.369Z</lastmod>
+    <lastmod>2020-07-19T14:18:55.028Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/07/13/mySQL1/</loc>
+    
+    <lastmod>2020-07-19T14:18:53.900Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/07/13/mySQL2/</loc>
+    
+    <lastmod>2020-07-19T14:18:53.055Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/07/13/mySQL3/</loc>
+    
+    <lastmod>2020-07-19T14:18:52.035Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/07/18/mySQL4/</loc>
+    
+    <lastmod>2020-07-19T14:18:50.724Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/07/19/Java1/</loc>
+    
+    <lastmod>2020-07-19T14:18:47.056Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/03/23/note10/</loc>
+    
+    <lastmod>2020-03-27T09:35:58.878Z</lastmod>
     
   </url>
   
